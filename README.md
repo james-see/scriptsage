@@ -57,10 +57,15 @@ endLine: 52
 
 The project uses the following dependencies:
 
-```toml:pyproject.toml
-startLine: 8
-endLine: 17
-```
+- **requests**: For making HTTP requests to fetch screenplay content.
+- **beautifulsoup4**: For parsing HTML content.
+- **pandas**: For data manipulation and analysis.
+- **matplotlib**: For creating visualizations.
+- **seaborn**: For creating statistical visualizations.
+- **numpy**: For numerical operations.
+- **json**: For handling JSON data.
+- **poetry**: For dependency management and packaging.
+
 
 ## License
 
