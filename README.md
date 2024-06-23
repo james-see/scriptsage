@@ -22,6 +22,28 @@ poetry install
 
 ## Usage
 
+### Command Line Interface (CLI)
+
+ScriptSage provides a command line interface to scrape, parse, and visualize movie scripts. 
+
+To use the CLI, run the following command:
+
+```sh
+python scriptsage_cli.py <script_url>
+```
+
+For example, to scrape the screenplay of "Reservoir Dogs" and save it as a structured JSON file:
+
+```sh
+python scriptsage_cli.py https://imsdb.com/scripts/Reservoir-Dogs.html
+```
+
+This will perform the following actions:
+1. Scrape the screenplay content from the provided URL.
+2. Parse the screenplay content to extract scenes, characters, and dialogue interactions.
+3. Save the structured data as a JSON file in `~/.scriptsage/screenplays/`.
+4. Generate and save visualizations for dialogue distribution and character interactions in `~/.scriptsage/viz/`.
+
 ### Scraping Screenplay
 
 To scrape the screenplay of "Reservoir Dogs" and save it as a structured JSON file:
@@ -69,7 +91,6 @@ The project uses the following dependencies:
 - **numpy**: For numerical operations.
 - **json**: For handling JSON data.
 - **poetry**: For dependency management and packaging.
-
 
 ## License
 
