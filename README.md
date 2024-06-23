@@ -8,6 +8,10 @@ ScriptSage is a tool designed to parse and evaluate movie scripts. It provides f
 - **Data Structuring**: Convert screenplay content into structured JSON format.
 - **Visualization**: Generate visualizations for dialogue distribution and character interactions.
 
+## Example Output Conversation Heatmap
+
+![heat-map-cleaned-up](https://github.com/james-see/scriptsage/assets/616585/adcab939-efc6-4cf9-ad96-6d6e6645b6de)
+
 ## Installation
 
 Ensure you have Python 3.11 installed. You can install the required dependencies using Poetry:
