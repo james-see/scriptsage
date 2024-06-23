@@ -1,0 +1,587 @@
+{
+  "screenplay": {
+    "title": "Reservoir Dogs",
+    "characters": [
+      {
+        "name": "R E S E R V O I R   D O G S",
+        "dialogue_lines": 22,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "TIMOTHY CAREY",
+        "dialogue_lines": 3,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "ROGER CORMAN",
+        "dialogue_lines": 5,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "CHOW YUEN FAT",
+        "dialogue_lines": 3,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "JEAN LUC GODDARD",
+        "dialogue_lines": 3,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "JEAN PIERRE MELVILLE",
+        "dialogue_lines": 3,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "LAWRENCE TIERNEY",
+        "dialogue_lines": 3,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "LIONEL WHITE",
+        "dialogue_lines": 7,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "RESERVOIR DOGS",
+        "dialogue_lines": 41,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "JOE",
+        "dialogue_lines": 1533,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "NICE GUY EDDIE",
+        "dialogue_lines": 600,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "WAITRESS",
+        "dialogue_lines": 15,
+        "scenes": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "END OF POV",
+        "dialogue_lines": 518,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "TEDDY",
+        "dialogue_lines": 4,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "VIC",
+        "dialogue_lines": 80,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "EDDIE",
+        "dialogue_lines": 608,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "FLASH ON",
+        "dialogue_lines": 34,
+        "scenes": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "COP",
+        "dialogue_lines": 70,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "JEFFREY",
+        "dialogue_lines": 60,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "HOLDAWAY",
+        "dialogue_lines": 155,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "LOW ANGLE",
+        "dialogue_lines": 5,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "FREDDY",
+        "dialogue_lines": 225,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "CU ON HOLDAWAY",
+        "dialogue_lines": 6,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "FREEZE FRAME ON HOLDAWAY",
+        "dialogue_lines": 22,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "MEDIUM ON FREDDY",
+        "dialogue_lines": 13,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "FREEZE FRAME",
+        "dialogue_lines": 96,
+        "scenes": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "ECU GERMAN SHEPHERD",
+        "dialogue_lines": 29,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "SLOW MOTION",
+        "dialogue_lines": 13,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "CU OF FREDDY",
+        "dialogue_lines": 8,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "CU OF MACHINE",
+        "dialogue_lines": 6,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "CU OF GERMAN SHEPHERD",
+        "dialogue_lines": 23,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "FULL SCENE",
+        "dialogue_lines": 7,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "TWO SHOT OF FREDDY AND HOLDAWAY",
+        "dialogue_lines": 5,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "CU OF COMPUTER SCREEN",
+        "dialogue_lines": 15,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "JODIE",
+        "dialogue_lines": 369,
+        "scenes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "MEDIUM SHOT OF JODIE",
+        "dialogue_lines": 5,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "TWO SHOT OF HOLDAWAY AND FREDDY",
+        "dialogue_lines": 5,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "CU HOLDAWAY",
+        "dialogue_lines": 3,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "ON HOLDAWAY",
+        "dialogue_lines": 3,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "CU ON JOE",
+        "dialogue_lines": 3,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "MEDIUMS ON EVERYBODY",
+        "dialogue_lines": 19,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "FOUR SHOT",
+        "dialogue_lines": 14,
+        "scenes": [
+          1
+        ]
+      },
+      {
+        "name": "BANG",
+        "dialogue_lines": 7,
+        "scenes": [
+          1
+        ]
+      }
+    ],
+    "scenes": []
+  }
+}
