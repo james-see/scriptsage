@@ -76,7 +76,7 @@ def parse_screenplay(script, title):
             'MEDIUM SHOT', 'LONG SHOT', 'TWO SHOT', 'OVER THE SHOULDER', 'MR. PINK                      MR. WHITE', 'R E S E R V O I R   D O G S', 'RESERVOIR DOGS',
             'MR. WHITE   MR. PINK   EDDIE', 'LAWRENCE TIERNEY', 'JEAN PIERRE MELVILLE',
             'CHOW YUEN FAT', 'ROGER CORMAN', 'TIMOTHY CAREY', 'ANDRE D', 'LIONEL WHITE',
-            'BACK TO', 'POLICE FORCE'
+            'BACK TO', 'POLICE FORCE', 'FADE TO', 'FADE TO WHITE'
         ]
         return name and len(name) > 1 and name not in invalid_names
 
