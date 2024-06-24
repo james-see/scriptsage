@@ -57,6 +57,8 @@ def parse_screenplay(script, title):
             "EDDIE": "EDDIE (NICE GUY EDDIE)",
             "NICE GUY EDDIE": "EDDIE (NICE GUY EDDIE)",
             "MR. WRITE": "MR. WHITE",
+            "YOUNG WOMAN": "HONEY BUNNY",
+            "YOUNG MAN": "PUMPKIN"
             # Add any other corrections here
         }
         return name_corrections.get(name, name)
