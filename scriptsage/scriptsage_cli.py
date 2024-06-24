@@ -47,10 +47,14 @@ def parse_screenplay(script, title):
     global_dialogues = []
 
     lines = script.split("\n")
-    scene_pattern = re.compile(r"^\s*(INT\.|EXT\.)")
-    character_pattern = re.compile(r'\s{20,}([A-Z][A-Z\s.]+)(?:\s*\(.*\))?')
-    dialogue_pattern = re.compile(r'^\s{10,}')
+    scene_pattern = re.compile(r"^\s*(INT\.|EXT\.|INTERIOR|EXTERIOR|INSIDE|\<b\>([A-Z]))")
+    character_pattern = re.compile(r'\s{30,}([A-Z][A-Z\s.]+)(?:\s*\(.*\))?')
+    dialogue_pattern = re.compile(r'^\s{2,}')
     
+    # Alternative patterns
+    alt_character_pattern = re.compile(r'^\s\t\t\t([A-Z][A-Z\s.]+)(?:\s*\(.*\))?')
+    alt_dialogue_pattern = re.compile(r'^\t\t')
+
     def normalize_character_name(name):
         name = name.strip()
         name_corrections = {
@@ -76,7 +80,7 @@ def parse_screenplay(script, title):
             'MEDIUM SHOT', 'LONG SHOT', 'TWO SHOT', 'OVER THE SHOULDER', 'MR. PINK                      MR. WHITE', 'R E S E R V O I R   D O G S', 'RESERVOIR DOGS',
             'MR. WHITE   MR. PINK   EDDIE', 'LAWRENCE TIERNEY', 'JEAN PIERRE MELVILLE',
             'CHOW YUEN FAT', 'ROGER CORMAN', 'TIMOTHY CAREY', 'ANDRE D', 'LIONEL WHITE',
-            'BACK TO', 'POLICE FORCE', 'FADE TO', 'FADE TO WHITE'
+            'BACK TO', 'POLICE FORCE', 'FADE TO', 'FADE TO WHITE', 'OF NAVARONE'
         ]
         return name and len(name) > 1 and name not in invalid_names
 
@@ -135,6 +139,58 @@ def parse_screenplay(script, title):
         current_scene["characters"] = list(set(map(normalize_character_name, current_characters)))
         scenes.append(current_scene)
 
+    # If no characters found, try alternative patterns
+    if len(characters) == 0:
+        current_scene = None
+        current_characters = set()
+        current_character = None
+        global_characters = []
+        global_dialogues = []
+
+        for line in lines[start_index:]:
+            if scene_pattern.match(line):
+                if current_scene:
+                    current_scene["characters"] = list(set(map(normalize_character_name, current_characters)))
+                    scenes.append(current_scene)
+                current_scene = {
+                    "scene_number": len(scenes) + 1,
+                    "location": line.strip(),
+                    "characters": [],
+                }
+                current_characters = set()
+                current_character = None
+            else:
+                character_match = alt_character_pattern.match(line)
+                if character_match:
+                    current_character = normalize_character_name(character_match.group(1))
+                    if is_valid_character(current_character):
+                        if current_character not in characters:
+                            characters[current_character] = {
+                                "name": current_character,
+                                "dialogue_lines": 0,
+                                "scenes": [],
+                            }
+                        characters[current_character]["scenes"].append(len(scenes) + 1)
+                        current_characters.add(current_character)
+                        if current_character not in global_characters:
+                            global_characters.append(current_character)
+                
+                elif alt_dialogue_pattern.match(line) and current_character:
+                    if is_valid_character(current_character):
+                        characters[current_character]["dialogue_lines"] += 1
+                        global_dialogues.append(line.strip())
+                        for other_character in current_characters:
+                            if other_character != current_character:
+                                if current_character not in dialogue_interactions:
+                                    dialogue_interactions[current_character] = {}
+                                if other_character not in dialogue_interactions[current_character]:
+                                    dialogue_interactions[current_character][other_character] = 0
+                                dialogue_interactions[current_character][other_character] += 1
+
+        if current_scene:
+            current_scene["characters"] = list(set(map(normalize_character_name, current_characters)))
+            scenes.append(current_scene)
+
     # Normalize global_characters
     global_characters = [normalize_character_name(char) for char in global_characters]
 
@@ -152,9 +208,8 @@ def parse_screenplay(script, title):
         global_characters = [char for char in global_characters if char != "EDDIE (NICE GUY EDDIE)"]
         global_characters.append("EDDIE (NICE GUY EDDIE)")
 
-    print(f"Total characters found: {len(characters)}")  # Debug print
-    print(f"Total scenes found: {len(scenes)}")  # Debug print
-    print(f"Dialogue interactions: {dialogue_interactions}")  # Debug print
+    # print(f"Total characters found: {len(characters)}")
+    # print(f"Total scenes found: {len(scenes)}")
 
     return {
         "screenplay": {
@@ -288,23 +343,34 @@ def get_metrics(screenplay_data):
     word_count = len(words)
     scene_count = len(screenplay_data['screenplay']['scenes'])
     character_count = len(screenplay_data['screenplay']['characters'])
-    character_names = [char['name'] for char in screenplay_data['screenplay']['characters']]
+    character_names = [char['name'].lower() for char in screenplay_data['screenplay']['characters']]
 
     # Download stopwords if not already downloaded
     nltk.download('stopwords', quiet=True)
     stop_words = set(stopwords.words('english'))
 
-    # Add additional stopwords
+    # Add additional stopwords, character names, and invalid names
     additional_stopwords = {
         'i\'m', 'got', 'he\'s', 'get', 'gonna', 'are', 'it\'s', 'don\'t', 'that\'s', 'you\'re', 
         'ain\'t', 'can\'t', 'won\'t', 'gotta', 'wanna', 'it.', '-', '--', '...', ':', ';', ',', '.',
         '?', '!', '(', ')', '[', ']', '{', '}', '"', "'", '`'
     }
-    stop_words.update(additional_stopwords)
+    invalid_names = {
+        'cut', 'fade', 'dissolve', 'title', 'sequence', 'end', 'credits', 'superimpose', 'super',
+        'angle', 'close', 'closeup', 'continued', 'camera', 'back', 'scene', 'montage', 'flashback',
+        'intercut', 'time', 'smash', 'match', 'jump', 'freeze', 'frame', 'slow', 'motion', 'fast',
+        'split', 'screen', 'stock', 'shot', 'pov', 'point', 'view', 'pan', 'zoom', 'tracking',
+        'dolly', 'crane', 'aerial', 'establishing', 'wide', 'medium', 'long', 'two', 'shoulder'
+    }
+    stop_words.update(additional_stopwords, character_names, invalid_names)
 
-    # Top 50 most used words (excluding stopwords and non-word characters)
+    # Top 50 most used words (excluding stopwords, non-word characters, and character names)
     word_freq = Counter(word for word in words if word not in stop_words and word.isalnum())
     top_50_words = word_freq.most_common(50)
+
+    # Top 5 longest words
+    all_words = re.findall(r'\b\w+\b', script_content)
+    longest_words = sorted(set(all_words), key=len, reverse=True)[:5]
 
     # Update character_words using global_characters and global_dialogues
     character_words = {char: [] for char in screenplay_data['screenplay']['global_characters']}
@@ -324,9 +390,10 @@ def get_metrics(screenplay_data):
         'word_count': word_count,
         'scene_count': scene_count,
         'character_count': character_count,
-        'character_names': character_names,
+        'character_names': [char['name'] for char in screenplay_data['screenplay']['characters']],
         'top_50_words': top_50_words,
-        'top_character_words': top_character_words
+        'top_character_words': top_character_words,
+        'longest_words': longest_words
     }
 
 def print_metrics(metrics):
@@ -340,6 +407,8 @@ def print_metrics(metrics):
     print("\nTop 5 words per character:")
     for char, words in metrics['top_character_words'].items():
         print(f"{char}: {', '.join(f'{word}({count})' for word, count in words)}")
+    print("\nTop 5 longest words:")
+    print(', '.join(metrics['longest_words']))
 
 def main():
     parser = argparse.ArgumentParser(description="ScriptSage CLI")
