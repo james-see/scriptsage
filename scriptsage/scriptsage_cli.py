@@ -426,6 +426,8 @@ def main():
     screenplay_filename = os.path.join(screenplay_dir, f"{sanitized_title}.json")
     save_json(screenplay_data, screenplay_filename)
 
+    print(f"Screenplay data saved to: {screenplay_filename}")
+
     # Generate visualizations
     visualizations = [
         (plot_dialogue_distribution, "dialogue_distribution"),
@@ -447,28 +449,5 @@ def main():
         metrics = get_metrics(screenplay_data)
         print_metrics(metrics)
 
-    print(f"Screenplay data saved to: {screenplay_filename}")
-    plot_dialogue_distribution(
-        screenplay_data,
-        os.path.join(viz_dir, f"{sanitized_title}_dialogue_distribution.png"),
-    )
-    plot_character_interaction(
-        screenplay_data,
-        os.path.join(viz_dir, f"{sanitized_title}_character_interaction.png"),
-    )
-    plot_heatmap(
-        screenplay_data,
-        os.path.join(viz_dir, f"{sanitized_title}_character_interaction_heatmap.png"),
-    )
-    plot_social_network(
-        screenplay_data, os.path.join(viz_dir, f"{sanitized_title}_social_network.png")
-    )
-
-    if args.metrics:
-        metrics = get_metrics(screenplay_data)
-        print_metrics(metrics)
-
-
 if __name__ == "__main__":
     main()
-
