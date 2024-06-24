@@ -29,8 +29,10 @@ ScriptSage provides a command line interface to scrape, parse, and visualize mov
 To use the CLI, run the following command:
 
 ```sh
-python scriptsage_cli.py <script_url>
+python scriptsage_cli.py <script_url> [--metric]
 ```
+
+The `--metric` flag is optional. When included, it will display additional metrics about the screenplay.
 
 For example, to scrape the screenplay of "Reservoir Dogs" and save it as a structured JSON file:
 
@@ -38,11 +40,18 @@ For example, to scrape the screenplay of "Reservoir Dogs" and save it as a struc
 python scriptsage_cli.py https://imsdb.com/scripts/Reservoir-Dogs.html
 ```
 
+To scrape the screenplay and display additional metrics:
+
+```sh
+python scriptsage_cli.py https://imsdb.com/scripts/Reservoir-Dogs.html --metric
+```
+
 This will perform the following actions:
 1. Scrape the screenplay content from the provided URL.
 2. Parse the screenplay content to extract scenes, characters, and dialogue interactions.
 3. Save the structured data as a JSON file in `~/.scriptsage/screenplays/`.
 4. Generate and save visualizations for dialogue distribution and character interactions in `~/.scriptsage/viz/`.
+5. If the `--metric` flag is used, display additional metrics such as total word count, scene count, character count, and top words used in the screenplay.
 
 ### Scraping Screenplay
 
